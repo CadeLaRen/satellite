@@ -8,6 +8,7 @@ No semi colons needed. Use echo to print to standard out.
 ####Strings
 
 Either single or double quotes can be used for strings.
+	
 	echo 'Hello ' + "World"
 
 ####Numbers
@@ -15,30 +16,36 @@ Either single or double quotes can be used for strings.
 	y = 2
 
 ####Operators
-+, -, *, /, %, **, ++, -- are all supported
+	+, -, *, /, %, **, ++, --
 
 ####Comparisons
-==, !=, <, <=, >, >=, ||, &&
+	==, !=, <, <=, >, >=, ||, &&
 
 ####Booleans
 all empty things are treated as false, non-empty things are true
-'', 0, nil, [], false, true
+
+	'', 0, nil, [], false, true
 
 ####Conditionals
 use colons to denote end of if statements
+	
 	if a < b:
 		a++
 	else:
 		b++
 
 Can be written inline
+	
 	if a < b: a++
 	else: b++
 
 Ternary statement
+	
 	a < b ? a++ : b++
 
 ####Loops
+	
+	x = 0
 	while true:
 		x += 1
 
@@ -52,15 +59,18 @@ use start->end->step to designate a range. Step is optional and is 1 if not stat
 		echo i
 
 You can loop through lists.
+	
 	list = [1, 2, 3]
 	for i in list:
 		echo i*3
 
 ####Lists
 Lists can contain any type of object or declaration
+	
 	list = [1, 1+1, functionThatReturns(3), 'four']
 
 List comprehensions are sexy
+	
 	list = [2**i for i in 1->10]
 
 ####Functions
@@ -72,15 +82,16 @@ Return statements are not needed. The last evaluated expression of the funtion i
 ####Classes
 getters and setters are automatically there for all properties you declare.
 
-class Person:
-	properties:
-		age, gender
-	methods:
-		//getAge(), setAge(), getGender(), setGender() are free
-		def randomMethod:
-			blah = 'stuff'
+	class Person:
+		properties:
+			age, gender
+		methods:
+			//getAge(), setAge(), getGender(), setGender() are free
+			def randomMethod:
+				blah = 'stuff'
 
 instantiate
+	
 	tim = new Person(age:20, gender:'female')
 	echo tim
 		//tim:
