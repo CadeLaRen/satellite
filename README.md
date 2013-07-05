@@ -78,32 +78,3 @@ Return statements are not needed. The last evaluated expression of the funtion i
 
 	def max(a, b):
 		a > b ? true : false
-
-####Classes
-getters and setters are automatically there for all properties you declare.
-
-	class Person:
-		properties:
-			age, gender
-		methods:
-			//getAge(), setAge(), getGender(), setGender() are free
-			def randomMethod:
-				blah = 'stuff'
-
-instantiate
-	
-	tim = new Person(age:20, gender:'female')
-	echo tim
-		//tim:
-		//	age: 20
-		//	gender: 'female'
-	
-	//you can chain method calls together
-	tim.setAge(21).setGender('male')
-	echo tim
-		//tim:
-		//	age: 21
-		//	gender: 'male'
-	
-	echo tim.randomMethod()
-		//'stuff'
