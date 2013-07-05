@@ -8,8 +8,8 @@ No semi colons needed. Use echo to print to standard out.
 ####Strings
 
 Either single or double quotes can be used for strings.
-	
-	echo 'Hello ' + "World"
+
+	echo('Hello ' + "World")
 
 ####Numbers
 	x = 1
@@ -56,13 +56,13 @@ use start->end->step to designate a range. Step is optional and is 1 if not stat
 
 	//even numbers
 	for i in 0->100->2:
-		echo i
+		echo(i)
 
 You can loop through lists.
 	
 	list = [1, 2, 3]
 	for i in list:
-		echo i*3
+		echo(i*3)
 
 ####Lists
 Lists can contain any type of object or declaration

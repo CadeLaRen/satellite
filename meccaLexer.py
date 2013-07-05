@@ -1,14 +1,15 @@
 from lib import lex
 
 reserved = {
-	'echo' : 'ECHO',
-	'def'  : 'DEF',
-	'if'   : 'IF',
-	'else' : 'ELSE',
-	'for'  : 'FOR',
-	'while': 'WHILE',
-	'true' : 'TRUE',
-	'false' : 'FALSE'
+	'echo'  : 'ECHO',
+	'def'   : 'DEF',
+	'if'    : 'IF',
+	'else'  : 'ELSE',
+	'for'   : 'FOR',
+	'while' : 'WHILE',
+	'true'  : 'TRUE',
+	'false' : 'FALSE',
+	'in'    : 'IN',
 }
 
 tokens = [
@@ -23,6 +24,8 @@ tokens = [
 	'MOD',
 	'LPAREN',
 	'RPAREN',
+	'LBRACKET',
+	'RBRACKET',
 	'LESSTHAN',
 	'GREATERTHAN',
 	'NOT',
@@ -32,6 +35,7 @@ tokens = [
 	'DECREMENT',
 	'COLON',
 	'NEWLINE',
+	'RANGE',
 ] + list(reserved.values())
 
 t_EQUALS = r'='
@@ -42,6 +46,8 @@ t_MINUS  = r'-'
 t_MOD    = r'\%'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
+t_LBRACKET = r'\['
+t_RBRACKET = r'\]'
 t_LESSTHAN = r'<'
 t_GREATERTHAN = r'>'
 t_NOT    = r'\!'
@@ -51,6 +57,7 @@ t_INCREMENT = r'\+\+'
 t_DECREMENT = r'--'
 t_COLON = r':'
 t_NEWLINE = r'\n'
+t_RANGE = r'->'
 
 def t_IDENTIFIER(t):
 	r'[a-zA-Z_][a-zA-Z_0-9]*'
@@ -76,8 +83,8 @@ def t_error(t):
 lexer = lex.lex()
 
 data = '''
-while true:
-	echo('yo')
+for i in 0->10:
+	echo(i)
 '''
 
 lexer.input(data)
