@@ -34,8 +34,8 @@ tokens = [
 	'INCREMENT',
 	'DECREMENT',
 	'COLON',
-	'NEWLINE',
-	'RANGE',
+	'ARROW',
+	'BLANKLINE',
 ] + list(reserved.values())
 
 t_EQUALS = r'='
@@ -56,8 +56,8 @@ t_OR     = r'\|\|'
 t_INCREMENT = r'\+\+'
 t_DECREMENT = r'--'
 t_COLON = r':'
-t_NEWLINE = r'\n'
-t_RANGE = r'->'
+t_ARROW = r'->'
+t_BLANKLINE = r'^\s*\n$'
 
 def t_IDENTIFIER(t):
 	r'[a-zA-Z_][a-zA-Z_0-9]*'
@@ -74,6 +74,10 @@ def t_STRING(t):
 	t.value = t.value[1:-1]
 	return t
 
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
 t_ignore = ' \t'
 
 def t_error(t):
@@ -81,15 +85,3 @@ def t_error(t):
 	t.lexer.skip(1)
 
 lexer = lex.lex()
-
-data = '''
-for i in 0->10:
-	echo(i)
-'''
-
-lexer.input(data)
-
-while True:
-	tok = lexer.token()
-	if not tok: break
-	print(tok)

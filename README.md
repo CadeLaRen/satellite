@@ -49,14 +49,11 @@ Ternary statement
 	while true:
 		x += 1
 
-use start->end->step to designate a range. Step is optional and is 1 if not stated.
+use start->end to designate a range.
 	
 	for i in 0->100:
-		echo i
-
-	//even numbers
-	for i in 0->100->2:
 		echo(i)
+
 
 You can loop through lists.
 	
