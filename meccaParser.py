@@ -42,8 +42,14 @@ def p_expr_binary(p):
 			| expr MINUS expr
 			| expr TIMES expr
 			| expr DIVIDE expr
-			| expr MOD expr'''
-	p[0] = ('EVALUATE', p[1], p[2], p[3])
+			| expr MOD expr
+			| expr POWER expr
+			| expr INCREMENT
+			| expr DECREMENT'''
+	if len(p) == 4:
+		p[0] = ('EVALUATE', p[1], p[2], p[3])
+	else:
+		p[0] = ('EVALUATE', p[1], p[2])
 
 def p_expr_comparison(p):
 	'''expr : expr LESSTHAN expr
