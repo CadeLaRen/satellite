@@ -2,10 +2,10 @@ from lib import lex
 
 reserved = {
 	'int'   : 'INT',
-	'float' : 'FLOAT',
 	'double': 'DOUBLE',
 	'string': 'STRING',
 	'bool'  : 'BOOL',
+	'list'	: 'LIST',
 	'if'    : 'IF',
 	'else'  : 'ELSE',
 	'for'   : 'FOR',
@@ -14,6 +14,7 @@ reserved = {
 	'false' : 'FALSE',
 	'in'    : 'IN',
 	'return': 'RETURN',
+	'echo'  : 'ECHO',
 }
 
 tokens = [
@@ -43,8 +44,8 @@ tokens = [
 	'DECREMENT',
 	'COLON',
 	'ARROW',
-	'NEWLINE',
 	'COMMA',
+	'DOT',
 ] + list(reserved.values())
 
 t_ignore = ' \t'
@@ -70,8 +71,8 @@ t_INCREMENT = r'\+\+'
 t_DECREMENT = r'--'
 t_COLON = r':'
 t_ARROW = r'->'
-t_NEWLINE = r'\n'
 t_COMMA = r','
+t_DOT = r'.'
 
 def t_IDENTIFIER(t):
 	r'[a-zA-Z_][a-zA-Z_0-9]*'
