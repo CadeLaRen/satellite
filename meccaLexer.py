@@ -41,7 +41,6 @@ tokens = [
 	'ARROW',
 	'NEWLINE',
 	'COMMA',
-	'BLANKLINE',
 ] + list(reserved.values())
 
 t_ignore = ' \t'
@@ -67,7 +66,6 @@ t_COLON = r':'
 t_ARROW = r'->'
 t_NEWLINE = r'\n'
 t_COMMA = r','
-t_BLANKLINE = r'^\s*\n$'
 
 def t_IDENTIFIER(t):
 	r'[a-zA-Z_][a-zA-Z_0-9]*'

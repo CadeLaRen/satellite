@@ -54,6 +54,11 @@ use start->end to designate a range.
 	for i in 0->100:
 		echo(i)
 
+	//even numbers
+	for i in 0->100->2:
+		echo(i)
+	
+
 ####Functions
 
 	int max(a, b):

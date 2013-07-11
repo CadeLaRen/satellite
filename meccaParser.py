@@ -79,17 +79,21 @@ def p_parameters(p):
 	else:
 		p[0] = [p[1]]
 
-def p_function_declaration_statement(p):
-	'''statement : type IDENTIFIER LPAREN parameters RPAREN COLON explist return_statement'''
+def p_function_declaration(p):
+	'''expr : type IDENTIFIER LPAREN parameters RPAREN COLON explist return_statement'''
 	p[0] = ('FUNCTION', p[2], p[4], p[7], p[8])
 
-def p_for_statement(p):
-	'''statement : FOR expr IN range COLON explist COLON'''
+def p_for(p):
+	'''expr : FOR expr IN range COLON explist'''
 	p[0] = ('FOR', p[2], p[4], p[6])
 
 def p_range(p):
-	'''range : NUMBER ARROW NUMBER'''
-	p[0] = ('RANGE', p[1], p[3])
+	'''range : NUMBER ARROW NUMBER
+			 | NUMBER ARROW NUMBER ARROW NUMBER'''
+	if len(p) == 4:
+		p[0] = ('RANGE', p[1], p[3])
+	else:
+		p[0] = ('RANGE', p[1], p[3], p[5])
 
 def p_error(e):
 	print('error: %s' %e)
