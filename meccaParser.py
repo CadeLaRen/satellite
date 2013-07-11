@@ -87,6 +87,10 @@ def p_for(p):
 	'''expr : FOR expr IN range COLON explist'''
 	p[0] = ('FOR', p[2], p[4], p[6])
 
+def p_while(p):
+	'''expr : WHILE expr COLON explist'''
+	p[0] = ('WHILE', p[2], p[4])
+
 def p_range(p):
 	'''range : NUMBER ARROW NUMBER
 			 | NUMBER ARROW NUMBER ARROW NUMBER'''
