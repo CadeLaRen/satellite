@@ -43,16 +43,18 @@ def p_expr_binary(p):
 			| expr TIMES expr
 			| expr DIVIDE expr
 			| expr MOD expr'''
-	if (p[2] == '+'):
-		p[0] = ('PLUS', p[1], p[3])
-	elif (p[2] == '-'):
-		p[0] = ('MINUS', p[1], p[3])
-	elif (p[2] == '*'):
-		p[0] = ('TIMES', p[1], p[3])
-	elif (p[2] == '/'):
-		p[0] = ('DIVIDE', p[1], p[3])
-	elif (p[2] == '%'):
-		p[0] = ('MOD', p[1], p[3])
+	p[0] = ('EVALUATE', p[1], p[2], p[3])
+
+def p_expr_comparison(p):
+	'''expr : expr LESSTHAN expr
+			| expr GREATERTHAN expr
+			| expr LESSTHANEQUAL expr
+			| expr GREATERTHANEQUAL expr
+			| expr ISEQUAL expr
+			| expr NOTEQUAL expr
+			| expr AND expr
+			| expr OR expr'''
+	p[0] = ('COMPARE', p[1], p[2], p[3])
 
 def p_expr_initialize(p):
     '''expr : type IDENTIFIER EQUALS expr'''

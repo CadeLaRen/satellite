@@ -20,6 +20,8 @@ tokens = [
 	'IDENTIFIER',
 	'NUMBER',
 	'EQUALS',
+	'ISEQUAL',
+	'NOTEQUAL',
 	'TIMES',
 	'DIVIDE',
 	'PLUS',
@@ -31,7 +33,9 @@ tokens = [
 	'LBRACKET',
 	'RBRACKET',
 	'LESSTHAN',
+	'LESSTHANEQUAL',
 	'GREATERTHAN',
+	'GREATERTHANEQUAL',
 	'NOT',
 	'AND',
 	'OR',
@@ -45,6 +49,8 @@ tokens = [
 
 t_ignore = ' \t'
 t_EQUALS = r'='
+t_ISEQUAL = r'=='
+t_NOTEQUAL = r'\!='
 t_TIMES  = r'\*'
 t_DIVIDE = r'/'
 t_PLUS   = r'\+'
