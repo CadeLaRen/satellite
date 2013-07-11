@@ -8,33 +8,36 @@ precedence = (
 )
 
 def p_explist(p):
-    '''explist : 
-    | explist expression'''
+    '''exprlist : 
+    | exprlist expr'''
     if(len(p) < 3):
-        p[0] = ('EXPLIST', [])
+        p[0] = ('EXPRLIST', [])
     else:
         p[1][1].append(p[2])
         p[0] = p[1]
 
-def p_expression_number(p):
-	'expression : NUMBER'
-	p[0] = ('NUMBER', p[1])
+def p_type(p):
+	'''type : INT
+			| FLOAT
+			| DOUBLE
+			| STRING'''
 
-def p_expression_string(p):
-	'expression : STRING'
-	p[0] = ('STRING', p[1])
+	p[0] = p[1]
 
-def p_expression_identifier(p):
-	'expression : IDENTIFIER'
-	p[0] = ('IDENTIFIER', p[1])
+def p_number(p):
+	'''expr : NUMBER'''
+	p[0] = p[1]
 
-def p_expression_binaryop(p):
-	'''expression : expression PLUS expression
-	| expression MINUS expression
-	| expression TIMES expression
-	| expression DIVIDE expression
-	| expression MOD expression
-	'''
+def p_string(p):
+	'''expr : STRING'''
+	p[0] = p[1]
+
+def p_expr_binary(p):
+	'''expr : expr PLUS expr
+			| expr MINUS expr
+			| expr TIMES expr
+			| expr DIVIDE expr
+			| expr MOD expr'''
 	if (p[2] == '+'):
 		p[0] = ('PLUS', p[1], p[3])
 	elif (p[2] == '-'):
@@ -46,35 +49,9 @@ def p_expression_binaryop(p):
 	elif (p[2] == '%'):
 		p[0] = ('MOD', p[1], p[3])
 
-def p_expression_echo(p):
-	'expression : ECHO LPAREN expression RPAREN'
-	if (p[1] == 'echo'):
-		p[0] = ('ECHO', p[3])
-
-def p_expression_parenthesized(p):
-	'expression : LPAREN expression RPAREN'
-	p[0] = p[2]
-
-def p_idlist(p):
-	'''idlist : 
-	| idlist IDENTIFIER'''
-	if (len(p) < 3):
-		p[0] = ('IDLIST', [])
-	else:
-		p[1][1].append(p[2])
-		p[0] = p[1]
-
-def p_expression_block(p):
-	'block : COLON explist BLANKLINE'
-	p[0] = ('BLOCK', p[2])
-
-def p_expression_function(p):
-	'expression : DEF LPAREN idlist RPAREN block'
-	p[0] = ('DEF', p[4], p[6])
-
-def p_expression_range(p):
-	'expression : NUMBER ARROW NUMBER'
-	p[0] = ('RANGE', p[1], p[3])
+def p_expr_assign(p):
+    '''expr : type IDENTIFIER EQUALS expr'''
+    p[0] = ('ASSIGN', p[1], p[2], p[4])
 
 def p_error(e):
 	print('error: %s' %e)

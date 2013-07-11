@@ -12,8 +12,8 @@ Either single or double quotes can be used for strings.
 	echo('Hello ' + "World")
 
 ####Numbers
-	x = 1
-	y = 2
+	int x = 1
+	double y = 2.3
 
 ####Operators
 	+, -, *, /, %, **, ++, --
@@ -45,33 +45,17 @@ Ternary statement
 
 ####Loops
 	
-	x = 0
+	int x = 0
 	while true:
-		x += 1
+		x++
 
 use start->end to designate a range.
 	
 	for i in 0->100:
 		echo(i)
 
-
-You can loop through lists.
-	
-	list = [1, 2, 3]
-	for i in list:
-		echo(i*3)
-
-####Lists
-Lists can contain any type of object or declaration
-	
-	list = [1, 1+1, functionThatReturns(3), 'four']
-
-List comprehensions are sexy
-	
-	list = [2**i for i in 1->10]
-
 ####Functions
-Return statements are not needed. The last evaluated expression of the funtion is returned automatically.
 
-	def max(a, b):
-		a > b ? true : false
+	int max(a, b):
+		return a > b ? a : b
+		
