@@ -54,12 +54,17 @@ def p_expr_binary(p):
 	elif (p[2] == '%'):
 		p[0] = ('MOD', p[1], p[3])
 
-def p_expr_assign(p):
+def p_expr_initialize(p):
     '''expr : type IDENTIFIER EQUALS expr'''
-    p[0] = ('ASSIGN', p[1], p[2], p[4])
+    p[0] = ('INITIALIZE', p[1], p[2], p[4])
+
+def p_expr_assign(p):
+	'''expr : IDENTIFIER EQUALS expr'''
+	p[0] = ('ASSIGN', p[1], p[3])
 
 def p_return_statement(p):
-	'''return_statement : RETURN expr'''
+	'''return_statement : RETURN expr
+						| RETURN'''
 	p[0] = ('RETURN', p[2])
 
 def p_parameter(p):
@@ -74,13 +79,17 @@ def p_parameters(p):
 	else:
 		p[0] = [p[1]]
 
-def p_test(p):
-	'''expr : LPAREN parameters RPAREN'''
-	p[0] = p[2]
-
-def p_function_declaration(p):
-	'''expr : type IDENTIFIER LPAREN parameters RPAREN COLON explist return_statement'''
+def p_function_declaration_statement(p):
+	'''statement : type IDENTIFIER LPAREN parameters RPAREN COLON explist return_statement'''
 	p[0] = ('FUNCTION', p[2], p[4], p[7], p[8])
+
+def p_for_statement(p):
+	'''statement : FOR expr IN range COLON explist COLON'''
+	p[0] = ('FOR', p[2], p[4], p[6])
+
+def p_range(p):
+	'''range : NUMBER ARROW NUMBER'''
+	p[0] = ('RANGE', p[1], p[3])
 
 def p_error(e):
 	print('error: %s' %e)

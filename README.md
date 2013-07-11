@@ -9,7 +9,7 @@ No semi colons needed. Use echo to print to standard out.
 
 Either single or double quotes can be used for strings.
 
-	echo('Hello ' + "World")
+	string str = 'Hello ' + "World"
 
 ####Numbers
 	int x = 1
@@ -46,7 +46,7 @@ Ternary statement
 ####Loops
 	
 	int x = 0
-	while true:
+	while x < 100:
 		x++
 
 use start->end to designate a range.
