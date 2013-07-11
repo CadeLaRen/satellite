@@ -5,6 +5,7 @@ reserved = {
 	'float' : 'FLOAT',
 	'double': 'DOUBLE',
 	'string': 'STRING',
+	'bool'  : 'BOOL',
 	'def'   : 'DEF',
 	'if'    : 'IF',
 	'else'  : 'ELSE',

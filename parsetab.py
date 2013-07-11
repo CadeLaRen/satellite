@@ -5,9 +5,9 @@ _tabversion = '3.2'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'U&+\xbd\xb8L\x18]\x8ae\xb5\x1eHQ\xbd\x13'
+_lr_signature = 'zE\xb7\x9aaU-\x87\xfe\\3*\x12\x05\t\x84'
     
-_lr_action_items = {'DIVIDE':([2,4,6,15,16,17,18,19,21,],[-8,9,-7,-12,-11,9,9,-13,9,]),'STRING':([0,1,2,4,6,9,10,11,12,13,15,16,17,18,19,20,21,],[-1,2,-8,-2,-7,2,2,2,2,2,-12,-11,-9,-10,-13,2,-14,]),'INT':([0,1,2,4,6,9,10,11,12,13,15,16,17,18,19,20,21,],[-1,3,-8,-2,-7,3,3,3,3,3,-12,-11,-9,-10,-13,3,-14,]),'DOUBLE':([0,1,2,4,6,9,10,11,12,13,15,16,17,18,19,20,21,],[-1,7,-8,-2,-7,7,7,7,7,7,-12,-11,-9,-10,-13,7,-14,]),'FLOAT':([0,1,2,4,6,9,10,11,12,13,15,16,17,18,19,20,21,],[-1,5,-8,-2,-7,5,5,5,5,5,-12,-11,-9,-10,-13,5,-14,]),'NUMBER':([0,1,2,4,6,9,10,11,12,13,15,16,17,18,19,20,21,],[-1,6,-8,-2,-7,6,6,6,6,6,-12,-11,-9,-10,-13,6,-14,]),'TIMES':([2,4,6,15,16,17,18,19,21,],[-8,10,-7,-12,-11,10,10,-13,10,]),'EQUALS':([14,],[20,]),'PLUS':([2,4,6,15,16,17,18,19,21,],[-8,11,-7,-12,-11,-9,-10,-13,11,]),'MOD':([2,4,6,15,16,17,18,19,21,],[-8,13,-7,-12,-11,13,13,-13,13,]),'IDENTIFIER':([2,3,5,7,8,],[-6,-3,-4,-5,14,]),'MINUS':([2,4,6,15,16,17,18,19,21,],[-8,12,-7,-12,-11,-9,-10,-13,12,]),'$end':([0,1,2,4,6,15,16,17,18,19,21,],[-1,0,-8,-2,-7,-12,-11,-9,-10,-13,-14,]),}
+_lr_action_items = {'DIVIDE':([2,4,6,10,21,22,23,24,25,27,31,37,38,],[-9,12,-8,-10,-14,-13,12,12,-15,-21,12,-22,12,]),'RETURN':([2,4,6,10,21,22,23,24,25,27,31,34,35,37,38,],[-9,-2,-8,-10,-14,-13,-11,-12,-15,-21,-16,-1,36,-22,-17,]),'STRING':([0,1,2,4,6,10,12,13,14,15,16,21,22,23,24,25,27,28,31,34,35,36,37,38,],[-1,2,-9,-2,-8,-10,2,2,2,2,2,-14,-13,-11,-12,-15,-21,2,-16,-1,2,2,-22,-17,]),'INT':([0,1,2,4,6,10,12,13,14,15,16,21,22,23,24,25,27,28,31,34,35,36,37,38,],[-1,3,-9,-2,-8,-10,3,3,3,3,3,-14,-13,-11,-12,-15,-21,3,-16,-1,3,3,-22,-17,]),'DOUBLE':([0,1,2,4,6,10,12,13,14,15,16,21,22,23,24,25,27,28,31,34,35,36,37,38,],[-1,9,-9,-2,-8,-10,9,9,9,9,9,-14,-13,-11,-12,-15,-21,9,-16,-1,9,9,-22,-17,]),'FLOAT':([0,1,2,4,6,10,12,13,14,15,16,21,22,23,24,25,27,28,31,34,35,36,37,38,],[-1,5,-9,-2,-8,-10,5,5,5,5,5,-14,-13,-11,-12,-15,-21,5,-16,-1,5,5,-22,-17,]),'NUMBER':([0,1,2,4,6,10,12,13,14,15,16,21,22,23,24,25,27,28,31,34,35,36,37,38,],[-1,6,-9,-2,-8,-10,6,6,6,6,6,-14,-13,-11,-12,-15,-21,6,-16,-1,6,6,-22,-17,]),'RPAREN':([17,18,19,30,32,],[27,-18,-20,-19,33,]),'TIMES':([2,4,6,10,21,22,23,24,25,27,31,37,38,],[-9,13,-8,-10,-14,-13,13,13,-15,-21,13,-22,13,]),'EQUALS':([20,],[28,]),'COLON':([33,],[34,]),'BOOL':([0,1,2,4,6,10,12,13,14,15,16,21,22,23,24,25,27,28,31,34,35,36,37,38,],[-1,7,-9,-2,-8,-10,7,7,7,7,7,-14,-13,-11,-12,-15,-21,7,-16,-1,7,7,-22,-17,]),'MOD':([2,4,6,10,21,22,23,24,25,27,31,37,38,],[-9,16,-8,-10,-14,-13,16,16,-15,-21,16,-22,16,]),'LPAREN':([0,1,2,4,6,10,12,13,14,15,16,20,21,22,23,24,25,27,28,31,34,35,36,37,38,],[-1,8,-9,-2,-8,-10,8,8,8,8,8,29,-14,-13,-11,-12,-15,-21,8,-16,-1,8,8,-22,-17,]),'PLUS':([2,4,6,10,21,22,23,24,25,27,31,37,38,],[-9,14,-8,-10,-14,-13,-11,-12,-15,-21,14,-22,14,]),'IDENTIFIER':([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,21,22,23,24,25,26,27,28,29,31,34,35,36,37,38,],[-1,10,-6,-3,-2,-4,-8,-7,18,-5,-10,20,10,10,10,10,10,-14,-13,-11,-12,-15,18,-21,10,18,-16,-1,10,10,-22,-17,]),'MINUS':([2,4,6,10,21,22,23,24,25,27,31,37,38,],[-9,15,-8,-10,-14,-13,-11,-12,-15,-21,15,-22,15,]),'COMMA':([17,18,19,30,32,],[26,-18,-20,-19,26,]),'$end':([0,1,2,4,6,10,21,22,23,24,25,27,31,37,38,],[-1,0,-9,-2,-8,-10,-14,-13,-11,-12,-15,-21,-16,-22,-17,]),}
 
 _lr_action = { }
 for _k, _v in _lr_action_items.items():
@@ -16,7 +16,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'expr':([1,9,10,11,12,13,20,],[4,15,16,17,18,19,21,]),'type':([1,9,10,11,12,13,20,],[8,8,8,8,8,8,8,]),'exprlist':([0,],[1,]),}
+_lr_goto_items = {'parameters':([8,29,],[17,32,]),'expr':([1,12,13,14,15,16,28,35,36,],[4,21,22,23,24,25,31,4,38,]),'return_statement':([35,],[37,]),'type':([1,12,13,14,15,16,28,35,36,],[11,11,11,11,11,11,11,11,11,]),'explist':([0,34,],[1,35,]),'parameter':([8,26,29,],[19,30,19,]),}
 
 _lr_goto = { }
 for _k, _v in _lr_goto_items.items():
@@ -25,19 +25,27 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> exprlist","S'",1,None,None,None),
-  ('exprlist -> <empty>','exprlist',0,'p_explist','meccaParser.py',11),
-  ('exprlist -> exprlist expr','exprlist',2,'p_explist','meccaParser.py',12),
+  ("S' -> explist","S'",1,None,None,None),
+  ('explist -> <empty>','explist',0,'p_explist','meccaParser.py',11),
+  ('explist -> explist expr','explist',2,'p_explist','meccaParser.py',12),
   ('type -> INT','type',1,'p_type','meccaParser.py',20),
   ('type -> FLOAT','type',1,'p_type','meccaParser.py',21),
   ('type -> DOUBLE','type',1,'p_type','meccaParser.py',22),
   ('type -> STRING','type',1,'p_type','meccaParser.py',23),
-  ('expr -> NUMBER','expr',1,'p_number','meccaParser.py',28),
-  ('expr -> STRING','expr',1,'p_string','meccaParser.py',32),
-  ('expr -> expr PLUS expr','expr',3,'p_expr_binary','meccaParser.py',36),
-  ('expr -> expr MINUS expr','expr',3,'p_expr_binary','meccaParser.py',37),
-  ('expr -> expr TIMES expr','expr',3,'p_expr_binary','meccaParser.py',38),
-  ('expr -> expr DIVIDE expr','expr',3,'p_expr_binary','meccaParser.py',39),
-  ('expr -> expr MOD expr','expr',3,'p_expr_binary','meccaParser.py',40),
-  ('expr -> type IDENTIFIER EQUALS expr','expr',4,'p_expr_assign','meccaParser.py',53),
+  ('type -> BOOL','type',1,'p_type','meccaParser.py',24),
+  ('expr -> NUMBER','expr',1,'p_expr_number','meccaParser.py',29),
+  ('expr -> STRING','expr',1,'p_expr_string','meccaParser.py',33),
+  ('expr -> IDENTIFIER','expr',1,'p_expr_identifier','meccaParser.py',37),
+  ('expr -> expr PLUS expr','expr',3,'p_expr_binary','meccaParser.py',41),
+  ('expr -> expr MINUS expr','expr',3,'p_expr_binary','meccaParser.py',42),
+  ('expr -> expr TIMES expr','expr',3,'p_expr_binary','meccaParser.py',43),
+  ('expr -> expr DIVIDE expr','expr',3,'p_expr_binary','meccaParser.py',44),
+  ('expr -> expr MOD expr','expr',3,'p_expr_binary','meccaParser.py',45),
+  ('expr -> type IDENTIFIER EQUALS expr','expr',4,'p_expr_assign','meccaParser.py',58),
+  ('return_statement -> RETURN expr','return_statement',2,'p_return_statement','meccaParser.py',62),
+  ('parameter -> IDENTIFIER','parameter',1,'p_parameter','meccaParser.py',66),
+  ('parameters -> parameters COMMA parameter','parameters',3,'p_parameters','meccaParser.py',70),
+  ('parameters -> parameter','parameters',1,'p_parameters','meccaParser.py',71),
+  ('expr -> LPAREN parameters RPAREN','expr',3,'p_test','meccaParser.py',78),
+  ('expr -> type IDENTIFIER LPAREN parameters RPAREN COLON explist return_statement','expr',8,'p_function_declaration','meccaParser.py',82),
 ]
