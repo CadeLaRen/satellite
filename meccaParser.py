@@ -73,10 +73,15 @@ def p_expr_assign(p):
 def p_return_statement(p):
 	'''return_statement : RETURN expr
 						| RETURN'''
-	p[0] = ('RETURN', p[2])
+	if len(p) == 3:
+		p[0] = ('RETURN', p[2])
+	else:
+		p[0] = p[1]
 
 def p_parameter(p):
-	'''parameter : IDENTIFIER'''
+	'''parameter : IDENTIFIER
+				 | STRING
+				 | NUMBER'''
 	p[0] = p[1]
 
 def p_parameters(p):
@@ -89,7 +94,7 @@ def p_parameters(p):
 
 def p_function_declaration(p):
 	'''expr : type IDENTIFIER LPAREN parameters RPAREN COLON explist return_statement'''
-	p[0] = ('FUNCTION', p[2], p[4], p[7], p[8])
+	p[0] = (p[1], p[2], p[4], p[7], p[8])
 
 def p_for(p):
 	'''expr : FOR expr IN range COLON explist'''
