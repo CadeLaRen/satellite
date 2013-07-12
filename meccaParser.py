@@ -9,6 +9,11 @@ precedence = (
 
 class Expr: pass
 
+class Variable(Expr):
+	def __init__(self, type, value):
+		self.type = type
+		self.value = value
+
 class Int(Expr):
 	def __init__(self, value):
 		self.type = 'int'
@@ -65,6 +70,15 @@ def p_explist(p):
         p[1][1].append(p[2])
         p[0] = p[1]
 
+def p_type(p):
+	'''type : INT
+			| DOUBLE
+			| STRING
+			| BOOL
+			| LIST'''
+
+	p[0] = p[1]
+
 def p_expr_int(p):
 	'''expr : NUMBER'''
 	p[0] = vars(Int(p[1]))
@@ -89,7 +103,7 @@ def p_expr_list(p):
 
 def p_expr_identifier(p):
 	'''expr : IDENTIFIER'''
-	p[0] = p[1]
+	p[0] = vars(Variable(p[1]))
 
 def p_expr_binary(p):
 	'''expr : expr PLUS expr
@@ -120,7 +134,7 @@ def p_expr_comparison(p):
 
 def p_expr_initialize(p):
     '''expr : type IDENTIFIER EQUALS expr'''
-    p[0] = ('INITIALIZE', p[1], p[2], p[4])
+    p[0] = ('INITIALIZE', vars(Variable(p[1], p[2])), p[4])
 
 def p_expr_assign(p):
 	'''expr : IDENTIFIER EQUALS expr'''
