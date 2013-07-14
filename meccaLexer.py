@@ -46,6 +46,7 @@ tokens = [
 	'ARROW',
 	'COMMA',
 	'DOT',
+	'QUESTION',
 ] + list(reserved.values())
 
 t_ignore = ' \t'
@@ -73,6 +74,7 @@ t_COLON = r':'
 t_ARROW = r'->'
 t_COMMA = r','
 t_DOT = r'.'
+t_QUESTION = r'\?'
 
 def t_IDENTIFIER(t):
 	r'[a-zA-Z_][a-zA-Z_0-9]*'
