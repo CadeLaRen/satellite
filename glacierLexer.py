@@ -13,9 +13,9 @@ reserved = {
 }
 
 tokens = [
-	'IDENTIFIER', 'NUMBER',
+	'IDENTIFIER', 'NUMBER', 'COMMENT',
 	'EQUALS', 'ISEQUAL', 'NOTEQUAL', 
-	'PLUSEQUAL', 'MINUSEQUAL', 'MULTIPLYEQUAL', 'DIVIDEEQUAL', 'MODEQUAL',
+	'PLUSEQUAL', 'MINUSEQUAL', 'MULTIPLYEQUAL', 'DIVIDEEQUAL', 'MODEQUAL', 'POWEREQUAL',
 	'TIMES', 'DIVIDE', 'PLUS', 'MINUS', 'MOD', 'POWER',
 	'LPAREN', 'RPAREN', 'LBRACKET', 'RBRACKET',
 	'LESSTHAN', 'LESSTHANEQUAL', 'GREATERTHAN', 'GREATERTHANEQUAL',
@@ -33,6 +33,7 @@ t_MINUSEQUAL    = r'-='
 t_MULTIPLYEQUAL = r'\*='
 t_DIVIDEEQUAL   = r'/='
 t_MODEQUAL      = r'%='
+t_POWEREQUAL    = r'\*\*='
 t_TIMES         = r'\*'
 t_DIVIDE        = r'/'
 t_PLUS          = r'\+'
@@ -69,6 +70,10 @@ def t_NUMBER(t):
 def t_STRING(t):
 	r"(?:\"([^\"]+)\"|'([^']+)')"
 	t.value = t.value[1:-1]
+	return t
+
+def t_COMMENT(t):
+	r'//(.*)'
 	return t
 
 def t_newline(t):

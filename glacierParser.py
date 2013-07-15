@@ -3,9 +3,17 @@ from meccaLexer import tokens
 import sys
 
 precedence = (
-	('right', 'EQUALS'),
+	('left', 'COMMA'),
+	('right', 'ECHO'),
+	('left', 'EQUALS', 'PLUSEQUAL', 'MINUSEQUAL', 'MULTIPLYEQUAL', 'DIVIDEEQUAL', 'MODEQUAL', 'POWEREQUAL'),
+	('left', 'QUESTION', 'COLON'),
+	('left', 'OR', 'AND'),
+	('nonassoc', 'ISEQUAL', 'NOTEQUAL'),
+	('nonassoc', 'LESSTHAN', 'LESSTHANEQUAL', 'GREATERTHAN', 'GREATERTHANEQUAL'),
 	('left', 'PLUS', 'MINUS'),
 	('left', 'TIMES', 'DIVIDE', 'MOD'),
+	('right', 'NOT'),
+	('right', 'INCREMENT', 'DECREMENT')
 )
 
 def p_explist(p):
@@ -22,14 +30,14 @@ def p_error(e):
 
 parser = yacc.yacc()
 
-data = open(sys.argv[1], 'r').read()
+# data = open(sys.argv[1], 'r').read()
 
-result = parser.parse(data)
-print(result)
+# result = parser.parse(data)
+# print(result)
 
-# while True:
-# 	try: stream = raw_input('meccaParser > ')
-# 	except EOFError: break
-# 	if not stream: continue
-# 	result = parser.parse(stream)
-# 	print result
+while True:
+	try: stream = raw_input('glacierParser > ')
+	except EOFError: break
+	if not stream: continue
+	result = parser.parse(stream)
+	print result
