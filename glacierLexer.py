@@ -1,11 +1,6 @@
 from lib import lex
 
 reserved = {
-	'int'   : 'INT',
-	'double': 'DOUBLE',
-	'string': 'STRING',
-	'bool'  : 'BOOL',
-	'list'	: 'LIST',
 	'if'    : 'IF',
 	'else'  : 'ELSE',
 	'for'   : 'FOR',
@@ -18,63 +13,48 @@ reserved = {
 }
 
 tokens = [
-	'IDENTIFIER',
-	'NUMBER',
-	'EQUALS',
-	'ISEQUAL',
-	'NOTEQUAL',
-	'TIMES',
-	'DIVIDE',
-	'PLUS',
-	'MINUS',
-	'MOD',
-	'POWER',
-	'LPAREN',
-	'RPAREN',
-	'LBRACKET',
-	'RBRACKET',
-	'LESSTHAN',
-	'LESSTHANEQUAL',
-	'GREATERTHAN',
-	'GREATERTHANEQUAL',
-	'NOT',
-	'AND',
-	'OR',
-	'INCREMENT',
-	'DECREMENT',
-	'COLON',
-	'ARROW',
-	'COMMA',
-	'DOT',
-	'QUESTION',
+	'IDENTIFIER', 'NUMBER',
+	'EQUALS', 'ISEQUAL', 'NOTEQUAL', 
+	'PLUSEQUAL', 'MINUSEQUAL', 'MULTIPLYEQUAL', 'DIVIDEEQUAL', 'MODEQUAL',
+	'TIMES', 'DIVIDE', 'PLUS', 'MINUS', 'MOD', 'POWER',
+	'LPAREN', 'RPAREN', 'LBRACKET', 'RBRACKET',
+	'LESSTHAN', 'LESSTHANEQUAL', 'GREATERTHAN', 'GREATERTHANEQUAL',
+	'NOT', 'AND', 'OR',
+	'INCREMENT', 'DECREMENT',
+	'COLON', 'ARROW', 'COMMA', 'DOT', 'QUESTION',
 ] + list(reserved.values())
 
-t_ignore = ' \t'
-t_EQUALS = r'='
-t_ISEQUAL = r'=='
-t_NOTEQUAL = r'\!='
-t_TIMES  = r'\*'
-t_DIVIDE = r'/'
-t_PLUS   = r'\+'
-t_MINUS  = r'-'
-t_MOD    = r'\%'
-t_POWER  = r'\*\*'
-t_LPAREN = r'\('
-t_RPAREN = r'\)'
-t_LBRACKET = r'\['
-t_RBRACKET = r'\]'
-t_LESSTHAN = r'<'
-t_GREATERTHAN = r'>'
-t_NOT    = r'\!'
-t_AND    = r'&&'
-t_OR     = r'\|\|'
-t_INCREMENT = r'\+\+'
-t_DECREMENT = r'--'
-t_COLON = r':'
-t_ARROW = r'->'
-t_COMMA = r','
-t_DOT = r'.'
-t_QUESTION = r'\?'
+t_ignore        = ' \t'
+t_EQUALS        = r'='
+t_ISEQUAL       = r'=='
+t_NOTEQUAL      = r'\!='
+t_PLUSEQUAL     = r'\+='
+t_MINUSEQUAL    = r'-='
+t_MULTIPLYEQUAL = r'\*='
+t_DIVIDEEQUAL   = r'/='
+t_MODEQUAL      = r'%='
+t_TIMES         = r'\*'
+t_DIVIDE        = r'/'
+t_PLUS          = r'\+'
+t_MINUS         = r'-'
+t_MOD           = r'\%'
+t_POWER         = r'\*\*'
+t_LPAREN        = r'\('
+t_RPAREN        = r'\)'
+t_LBRACKET      = r'\['
+t_RBRACKET      = r'\]'
+t_LESSTHAN      = r'<'
+t_GREATERTHAN   = r'>'
+t_NOT           = r'\!'
+t_AND           = r'&&'
+t_OR            = r'\|\|'
+t_INCREMENT     = r'\+\+'
+t_DECREMENT     = r'--'
+t_COLON         = r':'
+t_ARROW         = r'->'
+t_COMMA         = r','
+t_DOT           = r'.'
+t_QUESTION      = r'\?'
 
 def t_IDENTIFIER(t):
 	r'[a-zA-Z_][a-zA-Z_0-9]*'

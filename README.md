@@ -9,11 +9,11 @@ No semi colons needed. Use echo to print to standard out.
 
 Either single or double quotes can be used for strings.
 
-	string str = 'Hello ' + "World"
+	str = 'Hello ' + "World"
 
 ####Numbers
-	int x = 1
-	double y = 2.3
+	x = 1
+	y = 2.3
 
 ####Operators
 	+, -, *, /, %, **, ++, --
@@ -45,7 +45,7 @@ Ternary statement
 
 ####Loops
 	
-	int x = 0
+	x = 0
 	while x < 100:
 		x++
 
@@ -64,6 +64,6 @@ use start->end to designate a range.
 
 ####Functions
 
-	int max(a, b):
+	max(a, b):
 		return a > b ? a : b
 		
