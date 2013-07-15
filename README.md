@@ -1,6 +1,6 @@
-#Mecca Programming Language
+#Glacier Programming Language
 
-Mecca is a programming language I'm writing for fun. It's designed to be a sleek and sexy object oriented scripting language. 
+Glacier is a programming language I'm writing for fun. It's designed to be a sleek and sexy object oriented scripting language. 
 
 ##Syntax
 No semi colons needed. Use echo to print to standard out.
@@ -52,6 +52,9 @@ Ternary statement
 use start->end to designate a range.
 	
 	for i in 0->100:
+		echo(i)
+
+	for i in 100->0:
 		echo(i)
 
 	//even numbers
