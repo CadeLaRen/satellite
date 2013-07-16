@@ -29,15 +29,15 @@ all empty things are treated as false, non-empty things are true
 ####Conditionals
 use colons to denote end of if statements
 	
-	if a < b:
+	if a < b {
 		a++
-	else:
+	}
+	else {
 		b++
-
-Can be written inline
+	}
 	
-	if a < b: a++
-	else: b++
+	if a < b { a++ }
+	else { b++ }
 
 Ternary statement
 	
@@ -46,24 +46,28 @@ Ternary statement
 ####Loops
 	
 	x = 0
-	while x < 100:
+	while x < 100 {
 		x++
+	}
 
 use start->end to designate a range.
 	
-	for i in 0->100:
+	for i in 0->100 {
 		echo(i)
+	}
 
-	for i in 100->0:
+	for i in 100->0 {
 		echo(i)
+	}
 
 	//even numbers
-	for i in 0->100->2:
+	for i in 0->100->2 {
 		echo(i)
+	}
 	
 
 ####Functions
 
-	max(a, b):
+	max(a, b) {
 		return a > b ? a : b
-		
+	}
