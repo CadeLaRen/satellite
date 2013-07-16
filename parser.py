@@ -47,13 +47,60 @@ def p_bool(p):
 			| FALSE'''
 	p[0] = ('BOOL', p[1])
 
+def p_list(p):
+	'''expr : LBRACKET parameters RBRACKET'''
+	p[0] = ('LIST', p[2])
+
 def p_comment(p):
 	'''expr : COMMENT'''
 	p[0] = ('COMMENT', p[1])
 
+def p_binary(p):
+	'''expr : expr PLUS expr
+			| expr MINUS expr
+			| expr TIMES expr
+			| expr DIVIDE expr
+			| expr MOD expr
+			| expr POWER expr'''
+	p[0] = ('BINARY', p[1], p[2], p[3])
+
+def p_unary(p):
+	'''expr : expr INCREMENT
+			| expr DECREMENT
+			| NOT expr'''
+	p[0] = ('UNARY', p[1], p[2])
+
 def p_assign(p):
 	'''expr : IDENTIFIER EQUALS expr'''
 	p[0] = ('ASSIGN', p[1], p[3])
+
+def p_binary_assign(p):
+	'''expr : IDENTIFIER PLUSEQUAL expr
+			| IDENTIFIER MINUSEQUAL expr
+			| IDENTIFIER MULTIPLYEQUAL expr
+			| IDENTIFIER DIVIDEEQUAL expr
+			| IDENTIFIER MODEQUAL expr
+			| IDENTIFIER POWEREQUAL expr'''
+	p[0] = ('BINARY_ASSIGN', p[1], p[2], p[3])
+
+def p_comparison(p):
+	'''expr : expr ISEQUAL expr
+			| expr NOTEQUAL expr
+			| expr LESSTHAN expr
+			| expr LESSTHANEQUAL expr
+			| expr GREATERTHAN expr
+			| expr GREATERTHANEQUAL expr
+			| expr AND expr
+			| expr OR expr'''
+	p[0] = ('COMPARE', p[1], p[2], p[3])
+
+def p_ternary(p):
+	'''expr : expr QUESTION expr COLON expr'''
+	p[0] = ('TERNARY', p[1], p[2], p[3], p[4], p[5])
+
+def p_echo(p):
+	'''expr : ECHO LPAREN parameters RPAREN'''
+	p[0] = ('ECHO', p[3])
 
 def p_block(p):
 	'''block : LCURLY explist RCURLY'''
@@ -75,6 +122,46 @@ def p_function(p):
 	'''expr : IDENTIFIER LPAREN parameters RPAREN block'''
 	p[0] = ('FUNCTION', p[1], p[3], p[5])
 
+def p_return(p):
+	'''expr : RETURN expr'''
+	p[0] = ('RETURN', p[2])
+
+def p_range(p):
+	'''range : NUMBER ARROW NUMBER'''
+	p[0] = ('RANGE', p[1], p[3])
+
+def p_for(p):
+	'''expr : FOR IDENTIFIER IN range block
+			| FOR IDENTIFIER IN IDENTIFIER block'''
+	p[0] = ('FOR', p[2], 'IN', p[4], p[5])
+
+def p_while(p):
+	'''expr : WHILE expr block'''
+	p[0] = ('WHILE', p[2], p[3])
+
+def p_if(p):
+	'''expr : IF expr block
+			| IF expr block else_ifs'''
+	if len(p) == 4:
+		p[0] = ('IF', p[2], p[3])
+	else:
+		p[0] = ('IF', p[2], p[3], p[4])
+
+def p_else(p):
+	'''else : ELSE block'''
+	p[0] = ('ELSE', p[2])
+
+def p_else_if(p):
+	'''else_if : ELSE IF expr block'''
+	p[0] = ('ELSE IF', p[3], p[4])
+
+def p_else_ifs(p):
+	'''else_ifs : else_if
+				| else_ifs else_if
+				| else'''
+	p[0] = p[1]
+
+
 def p_error(e):
 	print('error: %s' %e)
 
@@ -89,7 +176,7 @@ if len(sys.argv) == 2:
 	print(result)
 else:
 	while True:
-		try: stream = raw_input('glacierParser > ')
+		try: stream = raw_input('glacier > ')
 		except EOFError: break
 		if not stream: continue
 		result = parser.parse(stream)

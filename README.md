@@ -15,6 +15,9 @@ Either single or double quotes can be used for strings.
 	x = 1
 	y = 2.3
 
+####Lists
+	list = [a, 'hello', 23]
+
 ####Operators
 	+, -, *, /, %, **, ++, --
 
@@ -27,7 +30,6 @@ all empty things are treated as false, non-empty things are true
 	'', 0, nil, [], false, true
 
 ####Conditionals
-use colons to denote end of if statements
 	
 	if a < b {
 		a++
