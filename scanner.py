@@ -17,7 +17,7 @@ tokens = [
 	'EQUALS', 'ISEQUAL', 'NOTEQUAL', 
 	'PLUSEQUAL', 'MINUSEQUAL', 'MULTIPLYEQUAL', 'DIVIDEEQUAL', 'MODEQUAL', 'POWEREQUAL',
 	'TIMES', 'DIVIDE', 'PLUS', 'MINUS', 'MOD', 'POWER',
-	'LPAREN', 'RPAREN', 'LBRACKET', 'RBRACKET',
+	'LPAREN', 'RPAREN', 'LBRACKET', 'RBRACKET', 'LCURLY', 'RCURLY',
 	'LESSTHAN', 'LESSTHANEQUAL', 'GREATERTHAN', 'GREATERTHANEQUAL',
 	'NOT', 'AND', 'OR',
 	'INCREMENT', 'DECREMENT',
@@ -44,6 +44,8 @@ t_LPAREN        = r'\('
 t_RPAREN        = r'\)'
 t_LBRACKET      = r'\['
 t_RBRACKET      = r'\]'
+t_LCURLY        = r'{'
+t_RCURLY        = r'}'
 t_LESSTHAN      = r'<'
 t_GREATERTHAN   = r'>'
 t_NOT           = r'\!'
@@ -54,7 +56,7 @@ t_DECREMENT     = r'--'
 t_COLON         = r':'
 t_ARROW         = r'->'
 t_COMMA         = r','
-t_DOT           = r'.'
+t_DOT           = r'\.'
 t_QUESTION      = r'\?'
 
 def t_IDENTIFIER(t):

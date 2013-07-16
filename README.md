@@ -36,8 +36,8 @@ use colons to denote end of if statements
 		b++
 	}
 	
-	if a < b { a++ }
-	else { b++ }
+	if a < b {a++}
+	else {b++}
 
 Ternary statement
 	
@@ -56,14 +56,10 @@ use start->end to designate a range.
 		echo(i)
 	}
 
-	for i in 100->0 {
-		echo(i)
-	}
+	for i in 100->0 {echo(i)}
 
 	//even numbers
-	for i in 0->100->2 {
-		echo(i)
-	}
+	for i in 0->100->2 {echo(i)}
 	
 
 ####Functions
