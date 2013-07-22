@@ -1,1 +1,0 @@
-if a < b {a++} else if a++ {if b<c {c++} else {'yea bitch'}}
