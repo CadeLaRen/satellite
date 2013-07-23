@@ -1,1 +1,5 @@
-max(a,b) {return a > b ? a : b}
+file = open('http://google.com')
+
+scrape(file, {
+	if error {throw(error)}
+})

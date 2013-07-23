@@ -11,6 +11,8 @@ reserved = {
 	'return': 'RETURN',
 	'echo'  : 'ECHO',
 	'throw' : 'THROW',
+	'open'  : 'OPEN',
+	'scrape': 'SCRAPE',
 }
 
 tokens = [
