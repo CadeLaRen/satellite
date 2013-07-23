@@ -1,5 +1,7 @@
-file = open('http://google.com')
+page = open('http://google.com', {if error {throw(error)}})
 
-scrape(file, {
-	if error {throw(error)}
+scrape(page, {
+	links = 'a'
 })
+
+//hrefs = ['www.blah.com', 'www.hey.com', 'www.whoa.com']
