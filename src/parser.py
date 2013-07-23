@@ -124,7 +124,8 @@ def p_parameters(p):
 		p[0] = Node('PARAMETERS', p[1], p[3])
 
 def p_parameter(p):
-	'''parameter : expr'''
+	'''parameter : expr
+				 | block'''
 	p[0] = Node('PARAMETER', p[1])
 
 def p_function(p):
