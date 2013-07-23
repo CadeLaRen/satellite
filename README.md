@@ -72,30 +72,22 @@ use start->end to designate a range.
 
 ##Scraping
 
-	page = open('http://www.example.com', {if (error) {return false}})
+	page = open('http://www.example.com', {if (error) {throw(error)}})
 
 	scrape(page, {
-		links = all('a')
-		//links = ['<a href="#">First Link</a>', '<a href="#">Second Link</a>']
-		
+		links     = this.all('a')	
 		linkNames = links.text()
-		//linkNames = ['First Link', 'Second Link']
-		
 		linkHrefs = links.get('href')
-		//linkHrefs = ['#', '#']
 
 		pages = []
 
-		for link in all('a').get('href') {
-			newPage = open(link, if (error) {return false})
+		for link in this.all('a').get('href') {
+			newPage = open(link, if (error) {throw(error)})
 			pages.push(newPage)
 		}
 
-		//pages = ['<html></html>', '<html></html>']
 
-		emails = all(r'/^(\w[-._+\w]*\w@\w[-._\w]*\w\.\w{2,3})$/')
-		//emails = ['blah@example.com', 'hello@world.com']
-
+		emails     = this.all(r'/^(\w[-._+\w]*\w@\w[-._\w]*\w\.\w{2,3})$/')
 		firstEmail = emails.first()
-		//firstEmail = ['blah@example.com']
+		lastEmail  = emails.last()
 	})

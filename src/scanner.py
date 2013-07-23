@@ -10,6 +10,7 @@ reserved = {
 	'in'    : 'IN',
 	'return': 'RETURN',
 	'echo'  : 'ECHO',
+	'throw' : 'THROW',
 }
 
 tokens = [

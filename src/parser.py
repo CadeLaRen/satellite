@@ -162,6 +162,9 @@ def p_else_ifs(p):
 				| else'''
 	p[0] = p[1]
 
+def p_throw(p):
+	'''expr : THROW LPAREN expr RPAREN'''
+	p[0] = Node('THROW', p[3])
 
 def p_error(e):
 	print('error: %s' %e)
