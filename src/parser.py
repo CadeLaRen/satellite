@@ -103,14 +103,6 @@ def p_echo(p):
 	'''expr : ECHO LPAREN parameters RPAREN'''
 	p[0] = Node('ECHO', p[3])
 
-def p_open(p):
-	'''expr : OPEN LPAREN parameters RPAREN'''
-	p[0] = Node('OPEN', p[3])
-
-def p_scrape(p):
-	'''expr : SCRAPE LPAREN parameters RPAREN'''
-	p[0] = Node('SCRAPE', p[3])
-
 def p_block(p):
 	'''block : LCURLY explist RCURLY'''
 	p[0] = Node('BLOCK', p[2])

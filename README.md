@@ -70,24 +70,27 @@ use start->end to designate a range.
 		return a > b ? a : b
 	}
 
+	echo(max(23, 42))
+
 ##Scraping
 
 	page = open('http://www.example.com', {if (error) {throw(error)}})
 
 	scrape(page, {
-		links     = this.all('a')	
-		linkNames = links.text()
-		linkHrefs = links.get('href')
+		links     = this.all('a')      // => ['<a href="google.com">Google</a>', '<a href="amazon.com">Amazon</a>']	
+		linkNames = links.text()       // => ['Google', 'Amazon']
+		linkHrefs = links.get('href')  // => ['google.com', 'amazon.com']
 
 		pages = []
 
-		for link in this.all('a').get('href') {
-			newPage = open(link, if (error) {throw(error)})
+		for link in linkHrefs {
+			newPage = open(link)
 			pages.push(newPage)
 		}
 
 
-		emails     = this.all(r'/^(\w[-._+\w]*\w@\w[-._\w]*\w\.\w{2,3})$/')
-		firstEmail = emails.first()
-		lastEmail  = emails.last()
+		emails     = this.all(r'/^(\w[-._+\w]*\w@\w[-._\w]*\w\.\w{2,3})$/') 
+									// => ['blah@gmail.com', 'hello@world.com', 'foo@bar.com']
+		firstEmail = emails.first() // => 'blah@gmail.com'
+		lastEmail  = emails.last()  // => 'foo@bar.com'
 	})
