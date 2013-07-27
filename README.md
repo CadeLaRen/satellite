@@ -6,12 +6,12 @@ Glacier is a programming language I'm writing for fun. It's designed to be a sle
 
 	str = 'hello' + " world"
 
-/*
-	str[0] => 'h'
-	str[-1] => 'd'
-	str[0 -> -1] => 'hello world'
-	str[-1 -> 0] => 'dlrow olleh'
-*/
+	/*
+		str[0] => 'h'
+		str[-1] => 'd'
+		str[0 -> -1] => 'hello world'
+		str[-1 -> 0] => 'dlrow olleh'
+	*/
 
 	a = 1
 	b = 2.3
