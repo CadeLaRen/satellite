@@ -9,7 +9,6 @@ Glacier is a programming language I'm writing for fun. It's designed to be a sle
 	/*
 		str[0] => 'h'
 		str[-1] => 'd'
-		str[0 -> -1] => 'hello world'
 		str[-1 -> 0] => 'dlrow olleh'
 	*/
 
