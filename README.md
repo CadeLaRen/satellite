@@ -22,5 +22,11 @@ Glacier is a programming language I'm writing for fun. It's designed to be a sle
 
 	for i in 0->100 {echo(i)}
 
+	list = [1, 'apple', {name: 'blah', age:23}]
+	for obj in list {echo(obj)}
+
+	if elvis? {echo('he lives')}
+	else {echo('howdy')}
+
 	max(x, y) {return x > y ? x : y}
 	echo(max(a, b))
