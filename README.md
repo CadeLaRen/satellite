@@ -6,12 +6,6 @@ Glacier is a programming language I'm writing for fun. It's designed to be a sle
 
 	str = 'hello' + " world"
 
-	/*
-		str[0] => 'h'
-		str[-1] => 'd'
-		str[-1 -> 0] => 'dlrow olleh'
-	*/
-
 	a = 1
 	b = 2.3
 	c = 45
@@ -26,7 +20,6 @@ Glacier is a programming language I'm writing for fun. It's designed to be a sle
 	for obj in list {echo(obj)}
 
 	if elvis? {echo('he lives')}
-	else {echo('howdy')}
 
 	max(x, y) {return x > y ? x : y}
 	echo(max(a, b))

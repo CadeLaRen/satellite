@@ -56,6 +56,10 @@ def p_comment(p):
 	'''expr : COMMENT'''
 	p[0] = Node('COMMENT', p[1])
 
+def p_exists(p):
+	'''expr : expr QUESTION'''
+	p[0] = Node('EXISTS', p[1])
+
 def p_binary(p):
 	'''expr : expr PLUS expr
 			| expr MINUS expr
