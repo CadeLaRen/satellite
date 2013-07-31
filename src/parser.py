@@ -175,6 +175,10 @@ def p_throw(p):
 	'''expr : THROW LPAREN expr RPAREN'''
 	p[0] = Node('THROW', p[3])
 
+def p_thread(p):
+	'''expr : DOUBLELANGLE explist DOUBLERANGLE'''
+	p[0] = Node('THREAD', p[2])
+
 def p_error(e):
 	print('error: %s' %e)
 
