@@ -1,25 +1,33 @@
 #Glacier Programming Language
 
-Glacier is a programming language I'm writing for fun. It's designed to be a sleek and sexy web scraping slanguage.
+Glacier is a programming language I'm writing for fun. It's designed to be concurrent and all that jazz.
 
 ##Syntax
 
-	str = 'hello' + " world"
+use << >> to designate concurrency.
 
-	a = 1
-	b = 2.3
-	c = 45
+	<<
+		str = 'hello' + " world"
+		
+		<<
+			page = open('http://google.com')
+		>>
 
-	if a == b || b != c {a++} 
-	else if a == c && a <= b {b++}
-	else {c++}
+		a = 1
+		b = 2.3
+		c = 45
 
-	for i in 0->100 {echo(i)}
+		if a == b || b != c {a++} 
+		else if a == c && a <= b {b++}
+		else {c++}
 
-	list = [1, 'apple', {name: 'blah', age:23}]
-	for obj in list {echo(obj)}
+		for i in 0->100 {echo(i)}
 
-	if elvis? {echo('he lives')}
+		list = [1, 'apple', {name: 'blah', age:23}]
+		for obj in list {echo(obj)}
 
-	max(x, y) {return x > y ? x : y}
-	echo(max(a, b))
+		if elvis? {echo('he lives')}
+
+		max(x, y) {return x > y ? x : y}
+		echo(max(a, b))
+	>>
