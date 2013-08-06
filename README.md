@@ -30,20 +30,19 @@ use << >> to designate concurrency. Top level brackets are optional if no backgr
 	//concurrency.gl
     << 
     	Universe() {
-			public:
-				calibrate() {
-					//long calculations
-					return (god, physics)
-				}
-			private:
-				god = 0
-				physics = 0
+    		init(a) {self.a = a}
+    		init(a, b) {self.a, self.b = a, b}
+			calibrate() {
+				//physics = long calculations
+				self.physics = physics
+			}
     	}
 		
 		universe = new Universe()
 		<<
 			universe.calibrate()
 			echo('This is printed second!')
+			echo(universe.physics)
 		>>
 		echo('This is printed first!')
 	>>
