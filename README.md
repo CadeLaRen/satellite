@@ -29,7 +29,7 @@ use << >> to designate concurrency. Top level brackets are optional if no backgr
 
 	//concurrency.gl
     << 
-    	Universe() {
+    	Universe {
     		init(a) {self.a = a}
     		init(a, b) {self.a, self.b = a, b}
 			calibrate() {
