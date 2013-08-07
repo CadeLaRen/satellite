@@ -109,11 +109,12 @@ Glacier is a programming language I'm writing for fun. It's designed to be concu
 	}
 	###
 
-	# concurrency.gl
-	# use << >> to designate concurrency
+Concurrency example!
+
+	# use << >> to fire off background threads
     <<
     	Universe {
-    		init() {self.god = 0}
+    		init() {self.god = 'me'}
 			calibrate() {
 				//physics = long calculations
 				self.physics = physics
