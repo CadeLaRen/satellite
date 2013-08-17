@@ -61,6 +61,10 @@ Glacier is a programming language I'm writing for fun. It's designed to be concu
 	list = [1, 'apple', {name: 'blah', age:23}]
 	for obj in list {echo(obj)}
 
+	# hash tables
+	hash = {a: 1, b: 2}
+	for (key, value) in hash {echo(key, value)}
+
 	#list comprehension
 	['a', 'b', 'c'] + [1, 2, 3]    # ['a', 'b', 'c', 1, 2, 3]
 	[x*2 | x <- [1->5]]            # [2, 4, 6, 8, 10]
@@ -114,9 +118,8 @@ Concurrency example!
 	# use << >> to fire off background threads
     <<
     	Universe {
-    		init() {self.god = 'me'}
 			calibrate() {
-				//physics = long calculations
+				# long calculations
 				self.physics = physics
 			}
     	}
