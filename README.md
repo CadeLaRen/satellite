@@ -45,11 +45,7 @@ Satellite is a programming language I'm writing for fun. It's designed to be con
 	'Indexing'[0]    # 'I'
 
 	# conditionals
-	if a == b || b != c {
-		a++
-		b--
-		c ^ 2
-	} 
+	if a == b || b != c {a++;b--;c^2;} 
 	else if a == c && a <= b {b++}
 	else {c++}
 

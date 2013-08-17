@@ -52,6 +52,10 @@ def p_list(p):
 	'''expr : LBRACKET parameters RBRACKET'''
 	p[0] = Node('LIST', p[2])
 
+def p_hash(p):
+	'''expr : LCURLY hashparameters RCURLY'''
+	p[0] = Node('HASH', p[2])
+
 def p_comment(p):
 	'''expr : COMMENT'''
 	p[0] = Node('COMMENT', p[1])
@@ -124,6 +128,18 @@ def p_parameter(p):
 				 | block'''
 	p[0] = Node('PARAMETER', p[1])
 
+def p_hashparameters(p):
+	'''hashparameters : hashparameters COMMA hashparameter
+					  | hashparameter'''
+	if len(p) == 2:
+		p[0] = p[1]
+	else:
+		p[0] = Node('HASHPARAMETERS', p[1], p[3])
+
+def p_hashparameter(p):
+	'''hashparameter : expr COLON expr'''
+	p[0] = Node('HASHPARAMETER', p[1], p[3])
+
 def p_function_declaration(p):
 	'''expr : IDENTIFIER LPAREN parameters RPAREN block'''
 	p[0] = Node('FUNCTION DECLARATION', p[1], p[3], p[5])
@@ -193,7 +209,7 @@ if len(sys.argv) == 2:
 	print(result)
 else:
 	while True:
-		try: stream = raw_input('glacier > ')
+		try: stream = raw_input('satellite > ')
 		except EOFError: break
 		if not stream: continue
 		result = parser.parse(stream)
