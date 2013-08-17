@@ -1,6 +1,6 @@
-#Glacier Programming Language
+#Satellite Programming Language
 
-Glacier is a programming language I'm writing for fun. It's designed to be concurrent and all that jazz.
+Satellite is a programming language I'm writing for fun. It's designed to be concurrent and all that jazz.
 
 ##Syntax
 
